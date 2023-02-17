@@ -1,22 +1,17 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import CounterControler from './src/Components/CounterControler';
-import CounterView from './src/Components/CounterView';
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
+import {Provider} from 'react-redux';
+import Counter from './src/Redux/Counter';
+import {store} from './src/Redux/Store';
 
 const App = () => {
-  const [Counter, setCounter] = useState(0);
   return (
-    <View style={styles.container}>
-      <CounterView counterValue={Counter} />
-      <CounterControler setCounterValue={setCounter} />
+    <View style={{display: 'flex'}}>
+      <Provider store={store}>
+        <Counter />
+      </Provider>
     </View>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+
 export default App;
