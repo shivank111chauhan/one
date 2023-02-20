@@ -9,10 +9,10 @@ const initialState = {
 export const mainReducer = (State = initialState, action) => {
   switch (action.type) {
     case ADDITION:
-      return {...State, counter: State.counter + 1};
+      return {...State, counter: State.counter + Number(action.payload)};
       break;
     case SUBTRACTION:
-      return {...State, counter: State.counter - 1};
+      return {...State, counter: State.counter - Number(action.payload)};
       break;
     default:
       return State;
